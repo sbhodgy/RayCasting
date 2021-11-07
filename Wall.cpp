@@ -16,3 +16,13 @@ void Wall::draw(sf::RenderWindow &window)
 {
     window.draw(mLine);
 }
+
+sf::Vector2f Wall::getLineStart()
+{
+    return startPt;
+}
+
+sf::Vector2f Wall::getLineEnd()
+{
+    return endPt;
+}

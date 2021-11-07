@@ -34,18 +34,13 @@ int main()
         walls.push_back(wall);
     }
 
-    for (int i = 0; i < 360; i += 10)
+    for (int i = 0; i < 360; i += 2)
     {
         // convert to radians
 
-        double rad = i * 3.14159 / 180;
+        float angle = i;
 
-        float x = cos(rad) * 1000.f;
-        float y = sin(rad) * 1000.f;
-
-        std::cout << i << "   " << x << "   " << y << std::endl;
-
-        Ray ray(sf::Vector2f(300.f, 300.f), sf::Vector2f(x, y));
+        Ray ray(sf::Vector2f(300.f, 300.f), angle);
 
         rays.push_back(ray);
     }
@@ -75,6 +70,12 @@ int main()
         while (timeSinceLastUpdate > TimePerFrame)
         {
             timeSinceLastUpdate -= TimePerFrame;
+
+            for (auto itr = rays.begin(); itr != rays.end(); ++itr)
+            {
+                itr->updatePosition(sf::Mouse::getPosition(window));
+                itr->updateEndPoint(walls);
+            }
         }
 
         window.clear(sf::Color::Black);

@@ -10,6 +10,10 @@ public:
 
     void draw(sf::RenderWindow &window);
 
+    sf::Vector2f getLineStart();
+    
+    sf::Vector2f getLineEnd();
+
 private:
     sf::VertexArray mLine;
     sf::Vector2f startPt;
