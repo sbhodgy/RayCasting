@@ -34,7 +34,7 @@ int main()
         walls.push_back(wall);
     }
 
-    for (int i = 0; i < 360; i += 2)
+    for (int i = 0; i < 360; i += 5)
     {
         // convert to radians
 
